@@ -12,12 +12,6 @@ pipeline{
                 }
             }
         }
-
-        stage("Bring Down Selenium Jar") {
-            steps {
-                sh("/usr/local/bin/docker-compose down")
-            }
-        }
     }
     post {
         always {
