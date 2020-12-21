@@ -15,15 +15,13 @@ pipeline{
     }
     post {
         always {
-            archiveArtifacts artifacts: 'reports/current/**'
-            archiveArtifacts artifacts: 'target/surefire-reports/**'
-//            archiveArtifacts extent : 'reports/current/**'
+            archiveArtifacts artifacts: 'target/test-output'
 
             publishHTML (target : [allowMissing: false,
                                    alwaysLinkToLastBuild: true,
                                    keepAll: true,
-                                   reportDir: 'reports/current',
-                                   reportFiles: 'index.html',
+                                   reportDir: 'target/test-output/Spark',
+                                   reportFiles: 'ExtentSpark.html',
                                    reportName: 'Extent report',
                                    reportTitles: 'The Report'])
 
