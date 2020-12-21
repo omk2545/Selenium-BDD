@@ -24,7 +24,6 @@ pipeline {
                                  reportFiles          : 'ExtentSpark.html',
                                  reportName           : 'Extent report',
                                  reportTitles         : 'The Report'])
-            cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/cucumber-reports/json-reports/', mergeFeaturesById: true, pendingStepsNumber: -1, skipEmptyJSONFiles: true, skippedStepsNumber: -1, sortingMethod: 'NATURAL', undefinedStepsNumber: -1
-        }
+            cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/cucumber.json', jsonReportDirectory: 'target/cucumber-reports/json-reports/', mergeFeaturesById: true, pendingStepsNumber: -1, skipEmptyJSONFiles: true, skippedStepsNumber: -1, sortingMethod: 'NATURAL', undefinedStepsNumber: -1        }
     }
 }
