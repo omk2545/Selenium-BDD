@@ -1,5 +1,6 @@
 package com.context.testcontext;
 
+import com.searchmodule.pages.GoogleSearchPage;
 import com.searchmodule.pages.SearchPage;
 import org.openqa.selenium.WebDriver;
 
@@ -13,6 +14,7 @@ public class TestContext {
 //    }
     private WebDriver driver;
     private SearchPage searchPage;
+    private GoogleSearchPage googleSearchPage;
 
 
     public SearchPage getSearchPage() {
@@ -28,8 +30,13 @@ public class TestContext {
         this.driver = driver;
     }
 
+    public GoogleSearchPage getGoogleSearchPage() {
+        return googleSearchPage;
+    }
+
     public void initPages(WebDriver driver){
         searchPage = new SearchPage(driver);
+        googleSearchPage = new GoogleSearchPage(driver);
     }
 
 

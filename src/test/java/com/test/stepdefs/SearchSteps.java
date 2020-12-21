@@ -1,6 +1,7 @@
 package com.test.stepdefs;
 
 import com.context.testcontext.TestContext;
+import com.searchmodule.pages.GoogleSearchPage;
 import com.searchmodule.pages.SearchPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
@@ -23,16 +24,11 @@ import java.net.MalformedURLException;
 
 public class SearchSteps{
     TestContext context;
+    GoogleSearchPage googleSearchPage;
     public SearchSteps(TestContext context) {
         this.context =context;
+        googleSearchPage = context.getGoogleSearchPage();
     }
-
-//    public SearchPage searchPage;
-//
-//
-//    private WebDriver driver;
-
-
 
     @Given("^I am on the website duck-duck-go$")
     public void launchSite() {
@@ -56,38 +52,9 @@ public class SearchSteps{
         Assert.assertTrue(size > min);
     }
 
-    @Before
-    public void setupDriver() throws MalformedURLException {
-        // BROWSER => chrome / firefox
-        // HUB_HOST => localhost / 10.0.1.3 / hostname
-//        String host = "localhost";
-//        DesiredCapabilities dc;
-
-
-//        if(System.getProperty("BROWSER") != null &&
-//                System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
-//            dc = DesiredCapabilities.firefox();
-//        }else{
-//            dc = DesiredCapabilities.chrome();
-//        }
-//
-//        if(System.getProperty("HUB_HOST") != null){
-//            host = System.getProperty("HUB_HOST");
-//        }
-//
-//        String completeUrl = "http://" + host + ":4444/wd/hub";
-//        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-    }
-
-    @After
-    public void quitDriver(){
-        context.getDriver().quit();
-    }
-
     @Given("^I am on the open browser and open google$")
     public void iAmOnTheOpenBrowserAndOpenGoogle() {
-
-        context.getSearchPage().goToGoogle();
+        googleSearchPage.goToGoogle();
     }
 
     @When("Then I search for {string} on google page")
