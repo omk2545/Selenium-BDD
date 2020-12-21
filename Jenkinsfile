@@ -15,7 +15,7 @@ pipeline{
     }
     post {
         always {
-            archiveArtifacts artifacts: 'test-output'
+            archiveArtifacts artifacts: 'test-output/**'
 
             publishHTML (target : [allowMissing: false,
                                    alwaysLinkToLastBuild: true,
