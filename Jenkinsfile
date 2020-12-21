@@ -15,12 +15,12 @@ pipeline{
     }
     post {
         always {
-            archiveArtifacts artifacts: 'target/test-output'
+            archiveArtifacts artifacts: 'test-output'
 
             publishHTML (target : [allowMissing: false,
                                    alwaysLinkToLastBuild: true,
                                    keepAll: true,
-                                   reportDir: 'target/test-output/Spark',
+                                   reportDir: '/test-output/Spark',
                                    reportFiles: 'ExtentSpark.html',
                                    reportName: 'Extent report',
                                    reportTitles: 'The Report'])
